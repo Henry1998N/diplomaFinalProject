@@ -1,0 +1,623 @@
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-image: url("https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .section {
+    width: 100%;
+  }
+
+  .container {
+    position: relative;
+    width: 1170px;
+    margin: 0 auto;
+    color: #444;
+    font-size: 14px;
+    font-weight: 300;
+    font-family: Roboto, "Open Sans", Arial, sans-serif;
+    overflow: hidden;
+  }
+
+  .section .container {
+    padding: 30px 0 50px 0;
+  }
+
+  .section.bg {
+    background: #f7f7f7;
+  }
+  /*
+      Header
+    */
+
+  .hold {
+    height: 80px;
+  }
+
+  .header {
+    line-height: 100px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+  }
+
+  #logo {
+    position: absolute;
+    top: 20%;
+    transform: translateY(-50%);
+    float: left;
+    height: 40px;
+    width: 170px;
+    margin-left: 5px;
+  }
+
+  ul.nav {
+    float: right;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+  }
+
+  ul.nav li {
+    float: left;
+    position: relative;
+  }
+
+  ul.nav li a {
+    transition: color 0.2s linear;
+    font-size: 18px;
+  }
+
+  ul.nav li:hover a {
+    color: red;
+  }
+
+  ul.nav li a {
+    padding: 21px;
+    color: initial;
+    text-decoration: initial;
+  }
+  /*navbar*/
+
+  .parentDiv {
+    direction: rtl;
+    margin-top: 30px;
+    width: 75%;
+    background-color: rgb(51, 51, 51);
+    color: white;
+    margin-left: 12.5%;
+  }
+
+  .nav {
+    text-align: center;
+    font-size: 20px;
+  }
+
+  ul li {
+    display: inline-block;
+    padding: 0 8px;
+  }
+  .a {
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+  }
+  .a:hover {
+    color: black;
+    transition: 0.3s;
+    background-color: gray;
+    border: solid 3px orange;
+  }
+  /*slideshow*/
+  .main {
+    display: grid;
+    margin-top: -120px;
+    place-content: center;
+    width: 75%;
+    margin-left: 12.5%;
+    height: 100vh;
+  }
+
+  .slideshow {
+    position: relative;
+  }
+
+  .slide {
+    position: relative;
+    display: none;
+  }
+
+  .slide-number {
+    position: absolute;
+    top: 12px;
+    left: 45px;
+    z-index: 1;
+    font-size: 1.6rem;
+    color: white;
+  }
+
+  .slide-image {
+    position: relative;
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+  }
+
+  .slide-image img {
+    width: 100%;
+  }
+
+  .slide-image figcaption {
+    position: absolute;
+    right: 0;
+    bottom: 8px;
+    left: 0;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+  }
+
+  .slide.is-active {
+    display: block;
+  }
+
+  .controls {
+    position: absolute;
+    top: calc(50% - 50px);
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+  }
+
+  .controls button {
+    padding: 16px;
+    border: none;
+    font-size: 1.8rem;
+    color: white;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+
+  .controls button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .dots-container {
+    height: 20px;
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  .dot {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    padding: 4px;
+    margin: 0 4px;
+    background-color: #bbb;
+    border-radius: 50%;
+    transition: 0.6s ease;
+    cursor: pointer;
+  }
+
+  .dot.is-active,
+  .dot:hover {
+    background-color: #717171;
+  }
+
+  .fade {
+    animation-name: fade;
+    animation-duration: 0.4s;
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0.4;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  /*footrer*/
+  footer {
+    background-color: #272727;
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 30px;
+    margin-top: auto;
+  }
+
+  footer li {
+    list-style: none;
+    margin: 10px;
+    display: inline-block;
+  }
+
+  .icons a {
+    background: #52527a;
+    color: #272727;
+    padding: 14px;
+    font-size: 20px;
+    border-radius: 100%;
+    display: flex;
+  }
+  .icons a:hover {
+    color: #ffffff;
+    transition: 0.5s;
+  }
+
+  .menu a {
+    color: #ffffff;
+    text-transform: capitalize;
+  }
+  .menu a:hover {
+    color: #52527a;
+    transition: 0.5s;
+  }
+
+  .footer-copyright {
+    background-color: #52527a;
+    color: #ffffff;
+    padding: 15px;
+    margin-top: 30px;
+    text-transform: capitalize;
+  }
+
+  .footer-copyright p {
+    margin-bottom: 0px;
+  }
+  /*card*/
+  .containerCard {
+    direction: rtl;
+    margin: 80px auto;
+    width: 400px;
+    height: auto;
+    border-radius: 10px;
+    background-color: rgb(196, 196, 196);
+  }
+
+  .shadow {
+    box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.5);
+    transform: translate(0%, -0%);
+  }
+
+  .containerCard h2 {
+    text-align: center;
+    padding: 30px 0;
+    font-size: 2.5em;
+  }
+
+  .containerCard form {
+    text-align: center;
+  }
+
+  .containerCard form #usernameForm,
+  .containerCard form #passwordForm,
+  .containerCard form #submitForm {
+    width: 80%;
+    height: 30px;
+    margin: 20px;
+    border-radius: 0 10px 10px 0;
+    border: none;
+    outline: none;
+    background: none;
+  }
+
+  .containerCard form #usernameForm,
+  .containerCard form #passwordForm {
+    padding: 10px;
+    border-left: 5px solid #333333;
+    background-color: #b1b1b1;
+  }
+
+  .containerCard form #usernameForm:focus,
+  .containerCard form #passwordForm:focus {
+    padding: 10px;
+    border-left: 5px solid #333333;
+    border-bottom: 5px solid #333333;
+    border-radius: 0 10px 0 10px;
+    background-color: #949494;
+    transition: border 0.2s;
+  }
+
+  .containerCard form #submitForm {
+    height: 50px;
+    background-color: #969696;
+    border-radius: 10px;
+  }
+
+  .containerCard form #submitForm:hover {
+    height: 50px;
+    background-color: #7c7c7c;
+    cursor: pointer;
+  }
+
+  .containerCard form span {
+    color: rgb(85, 85, 85);
+  }
+
+  .containerCard .links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .containerCard .links li {
+    margin: 10px 20px 30px 20px;
+    font-size: 1.5em;
+  }
+
+  .instagram {
+    color: #d33778;
+  }
+  .github {
+    color: #171515;
+  }
+
+  .instagram:hover {
+    color: #8b2550;
+  }
+  .github:hover {
+    color: #413c3c;
+  }
+</style>
+<script
+  type="module"
+  src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+></script>
+<!--Google Fonts-->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
+  rel="stylesheet"
+/>
+<body>
+  <div class="hold">
+    <div class="header">
+      <div class="container">
+        <div id="logo">
+          <a href="homePage3.html">
+            <img src="logo3.png" style="width: 590px; height: 100px"
+          /></a>
+        </div>
+        <ul class="nav">
+          <li><a href="">ידיעון סטודנט</a></li>
+          <li><a href="">ידיעון מרצה</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="parentDiv">
+    <div class="nav">
+      <ul>
+        <li><a class="a" href="">ראשי</a></li>
+        <li><a class="a" href="">על המכללה</a></li>
+        <li><a class="a" href="">תחומי לימוד</a></li>
+        <li><a class="a" href="">לסטודנט</a></li>
+        <li><a class="a" href="">למרצה</a></li>
+        <li><a class="a" href="">צור קשר</a></li>
+        <li><a class="a" href="">לימודי תעודה</a></li>
+      </ul>
+    </div>
+  </div>
+  <main class="main">
+    <section class="slideshow">
+      <div class="slide fade is-active">
+        <span class="slide-number">1 / 3</span>
+        <figure class="slide-image">
+          <img
+            style="height: 400px; width: 1000px"
+            src="מכונות.jpeg"
+            alt="מכונות"
+          />
+          <figcaption
+            style="
+              color: white;
+              font-size: 20px;
+              font-weight: bold;
+              background-color: rgb(51, 51, 51);
+            "
+          >
+            ההכשרה המגוונת אותה עובר הנדסאי מכונות בהתמחות מכטרוניקה, כוללת
+            העמקה בתכני הליבה של תחום הנדסת מכונות, היכרות מעמיקה עם תחום
+            האלקטרוניקה ותכנותם של מיקרו בקרים ובקרים מתוכנתים
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="slide fade">
+        <span class="slide-number">2 / 3</span>
+        <figure class="slide-image">
+          <img
+            style="height: 400px; width: 1000px"
+            src="תוכנה.jpg"
+            alt="תוכנה"
+          />
+          <figcaption
+            style="
+              color: white;
+              font-size: 20px;
+              font-weight: bold;
+              background-color: rgb(51, 51, 51);
+            "
+          >
+            תכנית הלימודים של הנדסאי תוכנה מגוונת ועשירה ושמה דגש על מערכות
+            תוכנה, תכנות ופיתוח אתרי אינטרנט מתקדמים, וקשת רחבה של נושאים
+            תיאורטיים ויישומיים בעלי השלכות מדעיות
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="slide fade">
+        <span class="slide-number">3 / 3</span>
+        <figure class="slide-image">
+          <img
+            style="height: 400px; width: 1000px"
+            src="כימיה.jpg"
+            alt="כימיה"
+          />
+          <figcaption
+            style="
+              color: white;
+              font-size: 20px;
+              font-weight: bold;
+              background-color: rgb(51, 51, 51);
+            "
+          >
+            הנדסאי כימיה – מוכשרים לעבוד בתחומי הכימיה האנליטית והאורגנית.
+            תעשיית הכימיה מתקדמת ומשתמשת בשנים האחרונות במכשירים משוכללים להפרדה
+            , לזיהוי ולסינתזה של חומרים
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="controls">
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+      </div>
+
+      <div class="dots-container">
+        <span class="dot is-active" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+      </div>
+    </section>
+  </main>
+
+  <body>
+    <div class="containerCard shadow">
+      <h2>הרשמה</h2>
+      <form method="post" action="signUp.html">
+        <input
+          type="text"
+          name="username"
+          id="usernameForm"
+          placeholder="שם מלא"
+          required
+        />
+        <input
+          type="number"
+          name="number"
+          id="usernameForm"
+          placeholder="מספר טלפון"
+          maxlength="10"
+          minlength="9"
+          required
+        />
+        <input
+          type="text"
+          name="mail"
+          id="usernameForm"
+          placeholder="מייל"
+          required
+        />
+        <input type="submit" name="submit" id="submitForm" value="הרשמה" />
+      </form>
+
+      <ul class="links">
+        <li>
+          <a href="https://github.com/Tazoukaaa"
+            ><i class="github fa-brands fa-github"></i
+          ></a>
+        </li>
+        <li>
+          <a href="https://instagram.com/xerwanv"
+            ><i class="instagram fa-brands fa-instagram"></i
+          ></a>
+        </li>
+      </ul>
+    </div>
+  </body>
+  <footer>
+    <ul class="icons">
+      <li>
+        <a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a>
+      </li>
+      <li>
+        <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+      </li>
+      <li>
+        <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+      </li>
+      <li>
+        <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+      </li>
+    </ul>
+    <ul class="menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Creaters</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+    <div class="footer-copyright">
+      <p>Copyright @ 2022 All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+
+<script>
+  const prevBtn = document.querySelector(".prev");
+  const nextBtn = document.querySelector(".next");
+  const dots = Array.from(document.querySelectorAll(".dot"));
+
+  let slideIndex = 1;
+
+  function plusSlides(e) {
+    let num;
+
+    if (e.target === prevBtn) num = -1;
+    if (e.target === nextBtn) num = 1;
+
+    showSlides((slideIndex += num));
+  }
+
+  function currentSlide(e) {
+    if (e.target === dots[0]) showSlides((slideIndex = 1));
+    if (e.target === dots[1]) showSlides((slideIndex = 2));
+    if (e.target === dots[2]) showSlides((slideIndex = 3));
+  }
+
+  function showSlides(n) {
+    const slides = Array.from(document.querySelectorAll(".slide"));
+
+    if (n > slides.length) slideIndex = 1;
+    if (n < 1) slideIndex = slides.length;
+
+    slides.forEach((slide) => slide.classList.remove("is-active"));
+    dots.forEach((dot) => dot.classList.remove("is-active"));
+
+    slides[slideIndex - 1].classList.add("is-active");
+    dots[slideIndex - 1].classList.add("is-active");
+  }
+
+  prevBtn.addEventListener("click", plusSlides);
+  nextBtn.addEventListener("click", plusSlides);
+  dots.forEach((dot) => dot.addEventListener("click", currentSlide));
+
+  let balls = document.getElementsByClassName("shadow");
+
+  document.onmousemove = function () {
+    let x = (event.clientX * 5) / window.innerWidth + "%";
+    let y = (event.clientY * 5) / window.innerHeight + "%";
+
+    for (let i = 0; i < 2; i++) {
+      balls[i].style.left = x;
+      balls[i].style.top = y;
+      balls[i].style.transform = "translate(-" + x + ",-" + y + ")";
+    }
+
+    console.log("x =" + x);
+    console.log("y = " + y);
+  };
+</script>

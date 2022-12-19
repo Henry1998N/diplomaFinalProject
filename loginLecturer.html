@@ -1,0 +1,208 @@
+<html>
+  <script>
+    $("#login-btn").click(function () {
+      $(this).addClass("btn-shadow");
+    });
+    $("#login-btn").mouseout(function () {
+      $(this).removeClass("btn-shadow");
+    });
+    function myfunction(isinya) {
+      if (isinya == "register") {
+        $("#loginbtn").removeClass("active");
+        $("#registerbtn").addClass("active");
+        $("#login").css({ display: "none" });
+        $("#register").css({ display: "block" });
+      } else {
+        $("#registerbtn").removeClass("active");
+        $("#loginbtn").addClass("active");
+        $("#register").css({ display: "none" });
+        $("#login").css({ display: "block" });
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --color: rgb(36, 36, 255);
+    }
+    body {
+      background-image: url("https://ak2.picdn.net/shutterstock/videos/24364172/thumb/9.jpg");
+      background-size: cover;
+      font-family: sans-serif;
+    }
+    /* modal background */
+    .bg-box {
+      content: "";
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      top: 0;
+      left: 0;
+      position: fixed;
+      background-color: transparent;
+    }
+    .box {
+      background-color: rgba(0, 0, 0, 0.7);
+      max-width: 470px;
+      height: 650px;
+      margin: auto;
+      display: block;
+      margin-top: 1rem;
+      border-radius: 10px;
+      box-shadow: 0px 0px 20px 0.1px #acac;
+    }
+    .tab {
+      background-color: transparent;
+      display: flex;
+      margin: auto;
+      width: 90%;
+      height: 50px;
+      padding: 20px;
+    }
+    .tab-btn {
+      flex-grow: 1;
+      background-color: #292929;
+      outline: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-bottom: 2px solid #292929;
+      transition: 0.2s;
+      opacity: 0.8;
+    }
+    .tab-btn:hover {
+      opacity: 0.7;
+    }
+    .active {
+      border-bottom-color: var(--color);
+    }
+    .form-controler {
+      padding: 0 25px;
+    }
+    .form-controler:not(input[type="checkbox"]) {
+      text-align: center;
+    }
+    input[type="text"] {
+      width: 100%;
+      height: 40px;
+      background-color: transparent;
+      border: none;
+      border-bottom: 2px solid #acac;
+      outline: none;
+      caret-color: white;
+      color: rgb(231, 231, 231);
+      font-size: 14px;
+      transition: 0.4s;
+      margin-bottom: 1.3rem;
+    }
+    input[type="text"]:focus::placeholder {
+      color: transparent;
+    }
+    input[type="text"]:focus {
+      border-bottom-color: var(--color);
+    }
+    .main-atas {
+      text-align: center;
+      color: white;
+      margin-top: 1.8rem;
+      margin-bottom: 3rem;
+    }
+    .icon {
+      font-size: 7.5rem;
+    }
+    button[type="submit"] {
+      background-color: transparent;
+      outline: none;
+      border: none;
+      width: 100%;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-top: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid var(--color);
+      transition: 0.3s;
+    }
+    button[type="submit"]:hover {
+      background-color: var(--color);
+    }
+    .btn-shadow {
+      box-shadow: 0px 0px 7px 0.1px white;
+    }
+    .link {
+      text-align: left;
+      display: block;
+      font-size: 13px;
+      text-decoration: none;
+      color: rgba(146, 146, 146, 0.8);
+      padding: 2px;
+    }
+    .link:hover {
+      color: darkgoldenrod;
+    }
+    #register {
+      display: none;
+    }
+    .register {
+      margin-bottom: 2rem;
+    }
+    input[type="checkbox"] {
+      text-align: left;
+      zoom: 0.9;
+    }
+    .label-text {
+      color: rgb(194, 194, 194);
+      font-size: 13px;
+      padding-left: 7px;
+    }
+  </style>
+  <body>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>login/register form transparent</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link
+          rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+          crossorigin="anonymous"
+        />
+      </head>
+      <body>
+        <div class="bg-box">
+          <div class="box">
+            <div class="tab">
+              <button
+                id="loginbtn"
+                onclick="myfunction('login')"
+                class="tab-btn active"
+              >
+                Legends collage
+              </button>
+            </div>
+            <div class="form-controler" id="login">
+              <div class="main-atas">
+                <i class="icon fas fa-user-shield"></i>
+                <h1 class="display">Login Here</h1>
+              </div>
+              <form method="POST" action="CheckLoginLecturer.php">
+                <input
+                  type="text"
+                  placeholder="Email/Phone number"
+                  name="email"
+                />
+                <input type="text" placeholder="Password" name="id" />
+                <button type="submit" id="login-btn">Login</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </body>
+    </html>
+  </body>
+</html>
